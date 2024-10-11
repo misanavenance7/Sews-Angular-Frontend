@@ -1,0 +1,91 @@
+<div class="container">
+    <h2>Tailor Registration</h2>
+    <mat-stepper #stepper>
+        <!-- First Step -->
+        <mat-step [stepControl]="firstFormGroup" errorMessage="Fill required field.">
+            <ng-template matStepLabel>Fill out your Details</ng-template>
+            <form [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                    <mat-label>Full Name</mat-label>
+                    <input matInput placeholder="VENANCE ALEX MISANA" formControlName="full_name" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Valid Email</mat-label>
+                    <input matInput placeholder="vena@gmail.com" formControlName="email" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput placeholder="+2557483032" formControlName="phone_number" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>National ID Number</mat-label>
+                    <input matInput placeholder="XXXXX-XXXXX-XXXXX-XXXXX" formControlName="national_id_number" required>
+                </mat-form-field>
+                <div>
+                    <p>Go to the second step</p>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <!-- Second Step -->
+        <mat-step [stepControl]="secondFormGroup" errorMessage="Fill required field.">
+            <ng-template matStepLabel>Fill out your further Details</ng-template>
+            <form [formGroup]="secondFormGroup" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="fill">
+                    <mat-label>Sex</mat-label>
+                    <mat-select placeholder="your sex" formControlName="sex" required>
+                        <mat-option value="M">Male</mat-option>
+                        <mat-option value="F">Female</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Area of Residence</mat-label>
+                    <input matInput placeholder="Kigamboni" formControlName="area_of_residence" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Area of Work</mat-label>
+                    <input matInput placeholder="Kariakoo" formControlName="area_of_work" required>
+                </mat-form-field>
+                <div class="form-group">
+                    <label>
+                        Passport File
+                        <input type="file" (change)="onFileSelected($event)" />
+                        <button type="button" [disabled]="secondFormGroup.invalid || secondFormGroup.pristine">Upload</button>
+                    </label>
+                    <div *ngIf="passport_size" class="success-message">File selected: {{ passport_size.name }}</div>
+                </div>
+                <div>
+                    <p>Go to the last step to complete Registration</p>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <!-- Third Step -->
+        <mat-step [stepControl]="thirdFormGroup" errorMessage="Fill required field.">
+            <ng-template matStepLabel>Create Your Account</ng-template>
+            <form [formGroup]="thirdFormGroup" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Venny" formControlName="username" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Enter Your Password</mat-label>
+                    <input matInput placeholder="na@YE2024" formControlName="password" type="password" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Confirm Your Password</mat-label>
+                    <input matInput placeholder="na@YE2024" formControlName="confirmPassword" type="password" required>
+                </mat-form-field>
+                <p>Done</p>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                    <button mat-button type="submit">Submit</button>
+                </div>
+            </form>
+        </mat-step>
+    </mat-stepper>
+</div>

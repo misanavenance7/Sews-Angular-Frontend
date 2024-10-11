@@ -1,0 +1,62 @@
+
+<div class="card">
+  <div class="card-body">
+        <div class="container" [ngClass]="{'open':showOption}" >
+            <img  (click)="toggleDropdown()" src="/images/emb.ico" alt="Username"/>
+        </div>
+  </div>
+</div>  
+
+    
+
+      <!-- Dropdown menu that shows when 'isDropdownOpen' is true -->
+      <div *ngIf="isDropdownOpen" class="card-body" style="width: 10rem; height:10rem; background-color: teal;  margin-left: 45cm;" >
+            <ul class="menu-list">
+                <li> <i class="fas fa-regular fa-user mr-2"></i>  Profile</li>
+                <li><i class="fa fa-gear"></i>  Settings</li>
+                <li><i class="mdi mdi-logout mr-2 text-blue-900"></i>  Sign out</li>
+            </ul>
+      </div>
+
+<div class="actions login__block__actions">
+  <div class="dropdown" [ngClass]="{'open': showOption}">
+    <button class="btn btn-secondary" (click)="toggleOption()">
+      mambo
+    </button>
+    <div *ngIf="showOption" class="bg-green">
+        <ul class="pull-right " >
+            <li><a data-block="#l-register" href="">Create an account</a></li>
+            <li><a data-block="#l-forget-password" href="">Forgot password?</a></li>
+        </ul>
+    </div>
+   
+  </div>
+</div>
+
+<!-- <div class="nav-menu fixed-top red-bg">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <nav class="navbar">
+                  <a class="navbar-brand" href="index.html"><img class="lougow" src="images/newlogo.png" alt="logo"></a>
+                  <div style="display: flex; align-items: center;">
+                      <div style="margin-right: 16px;">
+                          <a href="/" class="lang">sw</a>
+                          <span class="lang">/</span>
+                          <a href="en.html" class="lang">en</a>
+                      </div>
+                      <button class="topactioner">
+                          <a class="toplinker" href="https://wa.me/255768000168?text=Hi">
+                              CHAT NOW
+                          </a>
+                      </button>
+                  </div> 
+              </nav>
+          </div>
+      </div>
+  </div>
+</div> -->
+
+<!-- <mat-toolbar color="primary" class="mat-toolbar app-toolbar no-print mat-primary mat-toolbar-multiple-rows">
+
+</mat-toolbar> -->

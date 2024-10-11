@@ -1,0 +1,27 @@
+.container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    top: 200cm;
+    margin: 0 auto;
+    padding: 20px;
+    h2{ text-align:center;
+        color:white;
+        border-radius:5px;
+        background-color:teal;}
+  }
+
+  /* Hide the actual file input */
+input[type="file"] {
+  display: none;
+}
+
+/* Style the label as a button */
+.custom-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: teal;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
